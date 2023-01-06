@@ -34,7 +34,23 @@
 	<h3>Título de imagenes</h3>
 	<p>Con el atributo <em>title</em> podemos agregar un titulo a la imagen, éste saldrá cuando el usuario pase el cursor sobre ella. Este funcionamiento ocasiona problemas de accesibilidad por eso no se tiene en cuenta.</p>
 	<p>La información que puede estar en title se puede poner como texto en un parrafo. Aunque hay etiquetas que cumplen esta función, como lo son: <em>figure</em> y figcaption</p>
+	
+	<code>
+		<!--
+		    <img src="images/dinosaur.jpg"
+		     alt="La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados"
+		     width="400"
+		     height="341"
+		     title="Exposición de un T-Rex en el museo de la Universidad de Manchester.">
 
+		    Imagen con enlace:
+			<a href="https://developer.mozilla.org/">
+		  	 <img src="mdn-logo-sm.png" alt="MDN"></a>
+		  	 title="Logo del navegador Mozilla Firefox".
+			</a>
+		 -->
+	</code>	
+	
 	<h3>Agregar pie de imagen</h3>
 	<p><a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/figure">figure</a> hace de contenedor para la imagen y para <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/figcaption">figcaption</a> que es el pie de imagen, en el que vamos a escribir el contexto de la imagen o otra descripción que necesite.</p>
 	<p>Figcaption y alt no deberian decir lo mismo, porque si la imagen no se muestra (por tardar en cargar), aparecerá el mismo texto.</p>
@@ -45,6 +61,19 @@
 		<li>Proporciona información esencial que da apoyo a la página.</li>
 	</ul>
 	<p>Se aplica como contenedor de varias imagenes, un fragmente de código, audio, video, una tabla o a cualquier otra cosa.</p>
+	<code>
+		<!--
+			<figure>
+			  <img src="images/dinosaur.jpg"
+			  alt="La cabeza y el torso de un esqueleto de dinosaurio; tiene una cabeza grande con dientes largos y afilados" 
+			  width="400"
+			  height="341">
+			  <figcaption>
+			  Exposición de un T-Rex en el museo de la Universidad de Manchester.
+			  </figcaption>
+			</figure>
+		 -->
+	</code>
 
 
 	
