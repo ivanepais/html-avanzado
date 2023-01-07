@@ -27,6 +27,18 @@
 
 	<p>El atributo <em>sizes</em> hace de una función/condición para anchos de pantalla, indicamos la condicion entre parentesis que determina en qué ancho aplicará tal o cual imagen. Para el segundo valor (separado por un espacio) indicamos el ancho que ocupará la imagen, es una ranura para distintos tamaños de imagen. La ultima ranura no tiene condición, la imagen tomará el ancho escrito por defecto, cuando no se cumplan las demas.</p>
 	<p>Las condiciones tambien separadas por una coma y anter para escribir en línea nueva.</p>
+	
+	<code>
+		<!--
+		<img srcset="elva-fairy-320w.jpg 320w,
+             elva-fairy-480w.jpg 480w,
+             elva-fairy-800w.jpg 800w"
+     		 sizes="(max-width: 320px) 280px,
+             (max-width: 480px) 440px,
+             800px"
+             src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy">
+		 -->
+	</code>
 
 	<p>Con este código el navegador actuara de la siguiente forma:</p>
 	<ul>
@@ -50,20 +62,48 @@
 	<p>No usaremos el segundo valor de <em>srcset</em> (valor intrinseco que le dimos a la imagen), tampoco vamos a usar <em>size</em>.</p>
 	<p>Con el segundo valor de srcset <em>1.5x</em> ampliamos la imagen. En el CSS aplicamos a la imagen el ancho minimo que queremos, ej: <span>img {width: 320px}</span>.</p>
 	<p>A partir de ahora cuando se cambie el tamaño de pantalla, el navegador va a ampliar la imagen a partir de este tamaño minimo.</p>
-
+	<code>
+		<!--
+		<img srcset="elva-fairy-320w.jpg,
+             elva-fairy-480w.jpg 1.5x,
+             elva-fairy-640w.jpg 2x"
+     		 src="elva-fairy-640w.jpg" alt="Elva dressed as a fairy">
+		 -->
+	</code>
+	
 	<h3>Dirección de arte en la imagen</h3>
 	<p>Podemos editar/recortar nuestras imagenes de forma que enfoque la parte más interesante para los distintos tamaños de pantalla.</p>
 	<p>Usaremos un nuevo elemento <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/picture">picture</a>, es un contenedor de archivos/ruta, recursos que van a ser otro elemento que se llama <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/source">source</a>.</p>
 	<p>En el atributo media van las condiciones de tamaño de pantalla y en el atributo srcser van los archivos por encajaran según la pantalla.</p>
 	<p>Siempre se deja el archivo img con src para que sea compatible con navegadores antiguos. Solo usamos estos elemenos y atributos en "dirección de arte".</p>
+	<code>
+		<!--
+			<img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
 
+			<picture>
+			  <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
+			  <source media="(min-width: 800px)" srcset="elva-800w.jpg">
+			  <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+			</picture>
+		 -->
+	</code>
+	
 	<h3>¿Estos metodos son mejores que aplicar CSS y JS?</h3>
-	<p>No son utiles para imagenes responsivas ya que cargarían antes que el resto de los elementos y sería más complicada su implemetación.</p>
+	<p>No son utiles para imagenes responsivas ya que cargarían antes que el resto de los elementos y sería más complicada su implemetación, por eso adoptamos la solución srcset de HTML.</p>
 
 	<h3>Formatos de imagenes modernos</h3>
 	<p>Pueden ser <em>WebP</em> y <em>JPEG-2000</em> su peso es contenido y tienen alta calidad, pero el soporte entre los navegadores es irregular.</p>
 	<p>Debemos usarlos con el elemento <em>picture</em> con los atributos <em>type</em> (declarando el tipo de archivo y su extension) y <em>srcset</em> para la ruta del archivo.</p>
-
+	<code>
+		<!--
+			<picture>
+			  <source type="image/svg+xml" srcset="pyramid.svg">
+			  <source type="image/webp" srcset="pyramid.webp">
+			  <img src="pyramid.png" alt="regular pyramid built from four equilateral triangles">
+			</picture>
+		 -->
+	</code>
+	
 	<h3>Resumen</h3>
 	<ul>
 		<li><strong>Dirección de arte</strong>: Cuando se quiere mostrar una imagen recortada para distintos diseños, una imagen horizontal mostrará una escena completa que preferiblemente se usará para el diseño de escritorio y una imagen recortada/modo retrato mostrará o enfocará en un elemento principal, generalmente usada para diseño movil.</li>
