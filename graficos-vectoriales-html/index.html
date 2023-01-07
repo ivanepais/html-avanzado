@@ -25,7 +25,19 @@
 	<p>Tambien incluyen funciones: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix">feColorMatrix</a> (transforma colores usando una matriz/paleta colores), <a href="https://developer.mozilla.org/es/docs/Web/SVG/Element/animate">animate</a> (anima partes del grafico), <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/mask">mask</a> (aplica una mascara sobre la parte superior de la imagen).</p>
 	<p>Dentro de la etiqueta de apertura y cierre del SVG se ponen elementos y atributos con valores para representar la imagen.</p>
 	<p>Crear un SVG escribiendo el código se puede complicar demasiado. Profesionalmente se usan programas/editores de graficos vectoriales como <em>Inkscape</em>  (libre/gratuito, codigo abierto) o <em>Illustrator</em> (Adobe).</p>
-
+	
+	<code>
+		<!--
+		<svg version="1.1"
+		     baseProfile="full"
+		     width="300" height="200"
+		     xmlns="http://www.w3.org/2000/svg">
+		  <rect width="100%" height="100%" fill="black" />
+		  <circle cx="150" cy="100" r="90" fill="blue" />
+		</svg>
+		-->
+	</code>
+	
 	<p>Un archivo SVG es más avanzado tecnologicamente que un JPEG por lo tanto tiene ventajas y desventajas:</p>
 	<p><em>Ventajas</em>:</p>
 	<ul>
@@ -63,15 +75,36 @@
 		<li>para aplicar CSS debe incluir estilo en el codigo del SVG.</li>
 		<li>No puede usar pseudoclases.</li>
 	</ul>
+	<code>
+		<!--
+			<img
+		    src="equilateral.svg"
+		    alt="triangle with all three sides equal"
+		    height="87"
+		    width="100" />
+		-->
+	</code>	
 
 	<h3>Solución a los problemas de compatibilidad en los navegadores antiguos.</h3>
 	<p>Para navegadores que no admiten SVG, por ejemplo, el navegador de android 2.3 o IE 8 y anteriores.</p>
 	<p>En el elemento imagen ponemo la ruta del archivo SVG en <em>src</em> para navegadores antiguos y en el atributo <em>srcset</em>, ponemos el mismo svg para navegadores modernos.</p>
 	<p>Si bien es el mismo elemento con la misma imagen, son atributos distintos, el navegador aceptará el primero que entienda.</p>
-
+	<code>
+		<!--
+			<img src="equilateral.png" alt="triangle with equal sides" srcset="equilateral.svg">
+		 -->
+	</code>	
+	
 	<p>Puede usar SVG como imagen de fondo para un elemento del HTML, aunque no se podra usar JavaScript dado que usaremos la propidedad <em>background</em> de CSS.</p>
 	<p>Para navegadores antiguos usamos un imagen convensional para el fondo <span>background: url ("fallback.png")</span>. Para navegadores modernos usaremos un archivo svg y la propiedad <span>background-image: url ("image.svg")</span>.</p>
-
+	<code>
+		<!--
+			background: url("fallback.png") no-repeat center;
+			background-image: url("image.svg");
+			background-size: contain;
+		 -->
+	</code>
+	
 	<p>Si la imagen SVG no carga, puede ser que sea un <a href="https://developer.mozilla.org/es/docs/Web/SVG/Tutorial/Getting_Started#a_word_on_webservers">problema con  servidor y las imagenes SVG</a>.</p>
 
 	<h3>Agregando codigo SVG en el HTML: elemento svg</h3>
@@ -91,6 +124,13 @@
 		<li>No puede almacenar cache ya que la imagen es representada a traves de un código y no un archivo grafico. No reduciría timpos de carga.</li>
 		<li>Puede incluir un respaldo (fallback: propiedades de respaldo para compatibilidad en navegadores) en un elemento <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject">foreingObject</a> aunque se descargaran las imagennes de respaldo.</li>
 	</ul>
+	<code>
+		<!--
+			<svg width="300" height="200">
+			    <rect width="100%" height="100%" fill="green"/>
+			</svg>
+		 -->
+	</code>
 
 	<h3>Incrustar un SVG con iframe</h3>
 	<p>Como podiamos insertar otras páginas con iframe, podemos insertar un documento SVG.</p>
@@ -102,7 +142,13 @@
 		<li>La propiedad/archivo de respaldo solo funciona si el navegador carece de soporte para iframe.</li>
 		<li>No puede usar JavaScript a menos que el SVG y página activa/actual tengan el mismo <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">Origin</a>.</li>
 	</ul>
-
+	<code>
+		<!--
+			<iframe src="triangle.svg" width="500" height="500" sandbox>
+			<img src="triangle.png" alt="Triangle with three unequal sides" />
+			</iframe>
+		 -->
+	</code>
 
 </body>
 </html>
