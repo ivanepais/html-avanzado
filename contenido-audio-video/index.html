@@ -50,11 +50,32 @@
 				<li><em>metadata</em>: Almacena solo los metadatos del archivo.</li>
 			</ul>
 	</ul>
-
+	<code>
+		<!--
+			<video controls width="400" height="400"
+			  autoplay loop muted
+			  poster="poster.png">
+			  <source src="rabbit320.mp4" type="video/mp4">
+			  <source src="rabbit320.webm" type="video/webm">
+			  <p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.mp4">link to the video</a> instead.</p>
+			</video>
+		-->
+	</code>
+	
 	<h3>Elemento audio</h3>
 	<p><a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/audio">audio</a> funciona de la misma manera que <em>audio</em> con diferencia en los formatos (usaremos .ogg y .mp3) y algunos atributos que no funcionan como <em>width/height</em> y <em>poster</em>.</p>
 	<p>Con <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/source">source</a> y <em>src</em> proveemos de distintos formatos para la mayoria de navegadores.</p>
+	<code>
+		<!--
+			<audio controls>
+			  <source src="viper.mp3" type="audio/mp3">
+			  <source src="viper.ogg" type="audio/ogg">
+			  <p>Your browser doesn't support HTML5 audio. Here is a <a href="viper.mp3">link to the audio</a> instead.</p>
+			</audio>
 
+		 -->
+	</code>
+	
 	<h2>Agregar texto a un audio o video</h2>
 	<p>Muchas personas no quieren o no pueden escuchar un audio/video en ciertos momentos.</p>
 	<p>Pueden ser por cuestiones de salud o por cuestiones del entorno ruidoso o por cuestiones de lenguaje.</p>
@@ -67,7 +88,20 @@
 		<li><em>captions</em>: Traducción de sincronizada de dialogos o descripciones de sonidos/echos significativos.</li>
 		<li><em>timed descriptions</em>: Texto convertido a audio para personas con discapacidad visual.</li>
 	</ul>
+	<code>
+		<!--
+			WEBVTT
+			1
+			00:00:22.230 -- 00:00:24.606
+			This is the first subtitle.
 
+			2
+			00:00:30.739 -- 00:00:34.074
+			This is the second.
+		 -->
+	</code>
+	
 	<p>Siguiendo con el ejemplo del video, usamos <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/track">track</a> con tres atributos: <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/track#attr-kind">kind</a> en el que describimos el motivo del archivo WebVTT, <em>src</em> para poner la ruta donde se encuentra la transcripción y por ultimo <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/track#attr-srclang">srclang</a> para poner el idioma de la transcripción.</p>
 	<p>Debemos mensionar que son utiles para el SEO, puedes revisar el articulo <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video">transcripciones para video en HTML5</a> de MDN.</p>
+	
 </html>
